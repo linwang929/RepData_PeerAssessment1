@@ -24,6 +24,7 @@ library(dplyr)
 
 ```r
 library(lattice)
+options(scipen = 5, digits = 2) ## set the numeric output options
 ```
 
 ## Loading and preprocessing the data
@@ -106,7 +107,7 @@ mean <- mean(sum$sum, na.rm = TRUE)
 median <- median(sum$sum, na.rm = TRUE)
 ```
 Ignoring the NAs  
-Mean: 1.0766189\times 10^{4}; Median: 10765  
+Mean: 10766.19; Median: 10765  
 
 ## What is the average daily activity pattern?
 ### 1. make a time series plot
@@ -122,19 +123,19 @@ pattern  ## print pattern to see its structure and the first 10 rows
 ```
 ## Source: local data frame [288 x 2]
 ## 
-##    interval      mean
-##       (int)     (dbl)
-## 1         0 1.7169811
-## 2         5 0.3396226
-## 3        10 0.1320755
-## 4        15 0.1509434
-## 5        20 0.0754717
-## 6        25 2.0943396
-## 7        30 0.5283019
-## 8        35 0.8679245
-## 9        40 0.0000000
-## 10       45 1.4716981
-## ..      ...       ...
+##    interval  mean
+##       (int) (dbl)
+## 1         0 1.717
+## 2         5 0.340
+## 3        10 0.132
+## 4        15 0.151
+## 5        20 0.075
+## 6        25 2.094
+## 7        30 0.528
+## 8        35 0.868
+## 9        40 0.000
+## 10       45 1.472
+## ..      ...   ...
 ```
 
 ```r
@@ -197,13 +198,13 @@ head(pattern)  ## review the structure of pattern
 ```
 
 ```
-##   interval      mean
-## 1        0 1.7169811
-## 2        5 0.3396226
-## 3       10 0.1320755
-## 4       15 0.1509434
-## 5       20 0.0754717
-## 6       25 2.0943396
+##   interval  mean
+## 1        0 1.717
+## 2        5 0.340
+## 3       10 0.132
+## 4       15 0.151
+## 5       20 0.075
+## 6       25 2.094
 ```
 
 ### 3. create a new dataset that is equal to the original dataset but with the missing data filled in.
@@ -243,7 +244,7 @@ new_mean <- mean(new_sum$sum)
 new_median <- median(new_sum$sum)
 ```
 After imputing NAs  
-Mean: 1.0766189\times 10^{4}; Median: 1.0766189\times 10^{4}  
+Mean: 10766.19; Median: 10766.19  
 
 ###   ... Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 While the new mean and median of the total number of steps/day are quite close to those prior to imputing NAs, the distribution of total number of steps/day after imputing NAs is more concentrated around the mean/median from the comparsion between the two histograms.   

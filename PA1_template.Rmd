@@ -8,6 +8,7 @@ output:
 ```{r}
 library(dplyr)
 library(lattice)
+options(scipen = 5, digits = 2) ## set the numeric output options
 ```
 
 ## Loading and preprocessing the data
